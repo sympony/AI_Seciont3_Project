@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Bike Rental</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    </head>
+    <body>
+        <div style="width: 45rem;">
+            <br>
+            <br>
+            <h1>자전거 렌탈 사용자 수 예측</h1>
+            <br>
+            <br>
+            <form method="POST", action="{{url_for('predict')}}">
+                <div class="form-type">
+                    <label>월(Month)</label><br>
+                    <input type="number" class="form-control" name="Month" min=1 max=12 placeholder="월(Month)을 입력해주세요.">
+                </div>
+                <div>
+                    <label>일(Day)</label><br>
+                    <input type="number" class="form-control" name="Day" min=1 max=31 placeholder="일(Day)을 입력해주세요.">
+                </div>
+                <div>
+                    <label>시(Hour)</label><br>
+                    <input type="number" class="form-control" name="Hour" min=0 max=23 placeholder="시간(Hour)을 입력해주세요.">
+                </div>
+                <div>
+                    <label>온도(℃)</label><br>
+                    <input type="number" class="form-control" name="Temperature" step="0.1" placeholder="온도를 입력해주세요.">
+                </div>
+                <div>
+                    <label>습도(%)</label><br>
+                    <input type="number" class="form-control" name="Humidity" step="0.1" placeholder="습도를 입력해주세요.">
+                </div>
+                <div>
+                    <label>풍속</label><br>
+                    <input type="number" class="form-control" name="WIndspeed" min=0 max=10 step="0.1" placeholder="풍속을 입력해주세요.">
+                </div>
+                <div>
+                    <label>가시성</label><br>
+                    <input type="number" class="form-control" name="Visibility" min=0 max=20 placeholder="가시성 값을 입력해주세요.(최소: 0, 최대: 20, 보통: 16)">
+                </div>
+                <div>
+                    <label>날씨 수치</label><br>
+                    <input type="number" class="form-control" name="weather" min=-4 max=4 step=0.5 placeholder="날씨 수치를 입력해주세요.(0: 평소, +: 맑은날씨 최대 4, -:날씨가 좋지않음(비, 눈) 최소 -4)">
+                </div>
+                <div>
+                    <label>휴일</label><br>
+                    <select class="form-control" name="Holiday" placeholder="휴일 유무를 체크해주세요(휴일: 1, 평일:0)">
+                        <option value="None">휴일 유무를 체크해주세요(휴일: 1, 평일:0)</option>
+                        <option value="1">1</option>
+                        <option value="0">0</option>
+                </div>
+                <div>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
